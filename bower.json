@@ -1,12 +1,8 @@
 {
   "name": "orangeNotification",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "A notification service for AngularJS apps",
   "main": "dist/orange-notification.js",
-  "ignore":[
-    "*",
-    "!dist/"
-  ],
   "keywords": [
     "angularjs",
     "notification"
@@ -14,14 +10,11 @@
   "authors": [
     "Knut Gaute Vardenær <post@knutgaute.com>"
   ],
-  "license": "LGNU",
+  "license": "GNU Lesser General Public License",
   "homepage": "N/A",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "*",
+    "!dist/"
   ],
   "dependencies": {
     "angularjs": "^1.4.4",
