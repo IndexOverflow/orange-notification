@@ -6,7 +6,7 @@
   "ignore":[
     "*",
     "!dist/"
-  ]
+  ],
   "keywords": [
     "angularjs",
     "notification"
