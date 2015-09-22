@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A notification service for AngularJS apps",
   "main": "orange-notification.js",
+  "ignore":[
+    "*",
+    "!dist/"
+  ]
   "keywords": [
     "angularjs",
     "notification"
