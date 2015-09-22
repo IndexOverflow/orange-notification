@@ -1,0 +1,99 @@
+//out: example.css
+//sourcemap: false
+//compress: false
+//main: example.less
+
+@status-ok: green;
+@status-offline: grey;
+@status-alarm: red;
+
+.Animate(@animation, @length, @delay: 0s) {
+    -o-animation: @animation @length;
+    -webkit-animation: @animation @length;
+    -moz-animation: @animation @length;
+    animation: @animation @length;
+    -o-animation-delay: @delay;
+    -webkit-animation-delay: @delay;
+    -moz-animation-delay: @delay;
+    animation-delay: @delay;
+}
+
+.orange-notification {
+    margin: 0;
+    list-style: none;
+
+
+    li {
+        box-shadow: 0 -1px 14px #444;
+        margin-bottom: 10px;
+        /*padding: 10px;*/
+        height: 3em;
+        margin: 0;
+        margin-top: 10px;
+        padding: 20px;
+        color: #000;
+
+        &.ng-leave {
+            .Animate(fade-out, .6s);
+        }
+
+        &.info, &.message, &.wait, &.dialog {
+            background: #56575A;
+            color: #fff;
+        }
+
+        &.success {
+            background: @status-ok;
+        }
+
+        &.warning {
+            background: @status-offline;
+
+            &.ng-leave {
+                .Animate(fade-out, .6s,2s);
+            }
+        }
+
+        &.error {
+            background: @status-alarm;
+
+            &.ng-leave {
+                .Animate(fade-out, .6s,2s);
+            }
+        }
+
+        & > .icon, & > .dismiss {
+            width: 5%;
+            height: 100%;
+            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > i {
+                font-size: 1.5em;
+            }
+        }
+
+        & > .message {
+            width: 90%;
+            height: 100%;
+            float: left;
+            display: flex;
+            align-items: center;
+
+            & > p {
+                margin: 0 0 0 1em;
+            }
+
+            & > span {
+                margin: 0 0 0 0.5em;
+                cursor: pointer;
+
+                &.dialog {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

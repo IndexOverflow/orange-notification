@@ -1,0 +1,90 @@
+.orange-notification {
+  margin: 0;
+  list-style: none;
+}
+.orange-notification li {
+  box-shadow: 0 -1px 14px #444444;
+  margin-bottom: 10px;
+  /*padding: 10px;*/
+  height: 3em;
+  margin: 0;
+  margin-top: 10px;
+  padding: 20px;
+  color: #000;
+}
+.orange-notification li.ng-leave {
+  -o-animation: fade-out 0.6s;
+  -webkit-animation: fade-out 0.6s;
+  -moz-animation: fade-out 0.6s;
+  animation: fade-out 0.6s;
+  -o-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.orange-notification li.info,
+.orange-notification li.message,
+.orange-notification li.wait,
+.orange-notification li.dialog {
+  background: #56575A;
+  color: #fff;
+}
+.orange-notification li.success {
+  background: green;
+}
+.orange-notification li.warning {
+  background: grey;
+}
+.orange-notification li.warning.ng-leave {
+  -o-animation: fade-out 0.6s;
+  -webkit-animation: fade-out 0.6s;
+  -moz-animation: fade-out 0.6s;
+  animation: fade-out 0.6s;
+  -o-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.orange-notification li.error {
+  background: red;
+}
+.orange-notification li.error.ng-leave {
+  -o-animation: fade-out 0.6s;
+  -webkit-animation: fade-out 0.6s;
+  -moz-animation: fade-out 0.6s;
+  animation: fade-out 0.6s;
+  -o-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.orange-notification li > .icon,
+.orange-notification li > .dismiss {
+  width: 5%;
+  height: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orange-notification li > .icon > i,
+.orange-notification li > .dismiss > i {
+  font-size: 1.5em;
+}
+.orange-notification li > .message {
+  width: 90%;
+  height: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+.orange-notification li > .message > p {
+  margin: 0 0 0 1em;
+}
+.orange-notification li > .message > span {
+  margin: 0 0 0 0.5em;
+  cursor: pointer;
+}
+.orange-notification li > .message > span.dialog {
+  text-decoration: underline;
+}
