@@ -1,8 +1,8 @@
 {
   "name": "orangeNotification",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "A notification service for AngularJS apps",
-  "main": "orange-notification.js",
+  "main": "dist/orange-notification.js",
   "ignore":[
     "*",
     "!dist/"
