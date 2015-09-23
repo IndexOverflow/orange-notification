@@ -85,18 +85,31 @@ SOFTWARE.
         }
 
         function addNotification(message, type) {
+          pushNotification(buildNotification(message,type));
+        }
+
+        function buildNotification(message, type) {
+          var text = '';
+
+          if (typeof message === 'object'){
+            var messageText = message.text;
+            delete message.text;
+            text = applyFilter(messageText, message);
+          } else {
+            text = applyFilter(message);
+          }
+
           var notification = {
-            message: formatMessage(message),
+            message: text,
             type: type,
             expires: new Date().getTime() + oExpiration * 1000,
             discarded: false
           };
-
-          pushNotification(notification);
+          return notification;
         }
 
-        function formatMessage(message){
-          return myFilter === null ? message : myFilter(message);
+        function applyFilter(text, filterValues) {
+          return myFilter === null ? text : myFilter(text, filterValues);
         }
 
         //////////
@@ -142,17 +155,13 @@ SOFTWARE.
 
           var deferred = $q.defer();
 
-          var notification = {
-            dialogOptions: dialogOptions,
-            message: formatMessage(message),
-            type: 'dialog',
-            discarded: false,
-            resolve: function (val) {
-              deferred.resolve(val);
-            },
-            reject: function () {
-              deferred.reject();
-            }
+          var notification = buildNotification(message, 'dialog');
+          notification.dialogOptions = dialogOptions;
+          notification.resolve = function (val) {
+            deferred.resolve(val);
+          };
+          notification.reject = function () {
+            deferred.reject();
           };
 
           deferred.promise.finally(function () {
@@ -165,12 +174,8 @@ SOFTWARE.
         }
 
         function wait(message, promise) {
-          var notification = {
-            message: formatMessage(message),
-            type: 'wait',
-            discarded: false,
-            promise: promise
-          };
+          var notification = buildNotification(message, 'wait');
+          notification.promise = promise;
 
           pushNotification(notification);
 

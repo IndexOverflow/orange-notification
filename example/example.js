@@ -2,6 +2,7 @@ angular
 .module('exampleOrange', ['orangeNotification'])
 .config(configure)
 .filter('test', testFilter)
+.filter('valueTest', valueTestFilter)
 .controller('ExampleCtrl', ExampleCtrl);
 
 //////////
@@ -11,7 +12,7 @@ configure.$inject = ['orangeNotificationProvider'];
 function configure(orangeNotificationProvider){
   orangeNotificationProvider.setDirectiveTemplateUrl('/example/example-implementation.html');
   orangeNotificationProvider.setNotificationExpiraiton(5);
-  orangeNotificationProvider.setFilter('test');
+  orangeNotificationProvider.setFilter('valueTest');
 }
 
 //////////
@@ -22,12 +23,23 @@ function testFilter() {
   }
 }
 
+function valueTestFilter() {
+  return function(input, value) {
+    var o = '';
+
+    if (value){
+      o = ' (' + value.test + ') ';
+    }
+    return 'Message: ' + input + o;
+  }
+}
+
 //////////
 
 ExampleCtrl.$inject = ['orangeNotification', '$timeout'];
 
 function ExampleCtrl(ns, $timeout) {
-  ns.info('I am an info message');
+  ns.info({text: 'I am an info message', test: 'btw, I also use a filter value for extra coolness'});
   ns.warning('Darn, I have to warn you about something!');
   ns.error('Oh no, something didn\'t work');
   ns.success('Puh, crisis averted');
