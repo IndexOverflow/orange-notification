@@ -26,14 +26,17 @@
 .orange-notification li.message,
 .orange-notification li.wait,
 .orange-notification li.dialog {
-  background: #56575A;
+  background: #56575a;
   color: #fff;
 }
+.orange-notification li.info {
+  background: #3ab7e0;
+}
 .orange-notification li.success {
-  background: green;
+  background: #32e638;
 }
 .orange-notification li.warning {
-  background: grey;
+  background: #ffb433;
 }
 .orange-notification li.warning.ng-leave {
   -o-animation: fade-out 0.6s;
@@ -46,7 +49,7 @@
   animation-delay: 2s;
 }
 .orange-notification li.error {
-  background: red;
+  background: #ff3333;
 }
 .orange-notification li.error.ng-leave {
   -o-animation: fade-out 0.6s;

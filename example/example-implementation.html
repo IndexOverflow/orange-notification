@@ -1,20 +1,20 @@
 <ul class="orange-notification">
-  <li ng-repeat="notification in vm.notifications"
-  ng-attr-class="{{notification.type}}">
-  <div class="icon">
-    <i ng-attr-class="{{vm.getIconType(notification)}}" />
-  </div>
-  <div class="message" data-ng-if="notification.type !== 'dialog'">
-    <p>{{notification.message}}</p>
-  </div>
-  <div class="message" data-ng-if="notification.type === 'dialog'">
-    <p>
-      {{notification.message}}
-    </p>
-    <span class="dialog" data-ng-repeat="dialogOption in notification.dialogOptions" data-ng-click="notification.resolve(dialogOption.value)">{{dialogOption.text}}</span>
-  </div>
-  <div class="dismiss" data-ng-click="notification.discarded = true">
-    <i class="fa fa-close" />
-  </div>
-</li>
+    <li ng-repeat="notification in vm.notifications track by $index" ng-attr-class="{{notification.type}}">
+        <div class="icon">
+            <i ng-attr-class="{{vm.getIconType(notification)}}" />
+        </div>
+        <div class="message" data-ng-if="notification.type !== 'dialog'">
+            <p>{{notification.message}}</p>
+        </div>
+        <div class="message" data-ng-if="notification.type === 'dialog'">
+            <p>
+                {{notification.message}}
+            </p>
+            <span class="dialog" data-ng-repeat="dialogOption in notification.dialogOptions" data-ng-click="notification.resolve(dialogOption.value)">{{dialogOption.text}}</span>
+        </div>
+        <div class="dismiss" data-ng-click="notification.discarded = true">
+            <i class="fa fa-close" />
+        </div>
+
+    </li>
 </ul>

@@ -3,9 +3,11 @@
 //compress: false
 //main: example.less
 
-@status-ok: green;
-@status-offline: grey;
-@status-alarm: red;
+@status-default: #56575A;
+@status-info: #3AB7E0;
+@status-success: #32E638;
+@status-warning: #FFB433;
+@status-error: #FF3333;
 
 .Animate(@animation, @length, @delay: 0s) {
     -o-animation: @animation @length;
@@ -22,7 +24,6 @@
     margin: 0;
     list-style: none;
 
-
     li {
         box-shadow: 0 -1px 14px #444;
         margin-bottom: 10px;
@@ -38,16 +39,20 @@
         }
 
         &.info, &.message, &.wait, &.dialog {
-            background: #56575A;
+            background: @status-default;
             color: #fff;
         }
 
+        &.info {
+          background: @status-info;
+        }
+
         &.success {
-            background: @status-ok;
+            background: @status-success;
         }
 
         &.warning {
-            background: @status-offline;
+            background: @status-warning;
 
             &.ng-leave {
                 .Animate(fade-out, .6s,2s);
@@ -55,7 +60,7 @@
         }
 
         &.error {
-            background: @status-alarm;
+            background: @status-error;
 
             &.ng-leave {
                 .Animate(fade-out, .6s,2s);
