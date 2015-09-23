@@ -8,7 +8,7 @@ angular
 configure.$inject = ['orangeNotificationProvider'];
 
 function configure(orangeNotificationProvider){
-  orangeNotificationProvider.setDirectiveTemplateUrl('orange-notification.html');
+  orangeNotificationProvider.setDirectiveTemplateUrl('example-implementation.html');
 }
 
 //////////
